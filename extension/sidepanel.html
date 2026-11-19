@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdCheck by Ads Mentor</title>
+<link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="brand">
+    <img src="icons/icon-48.png" alt="" width="32" height="32">
+    <div><h1>AdCheck</h1><div class="by">Ad policy pre-checker · by Ads Mentor</div></div>
+  </header>
+
+  <div class="row top">
+    <button class="primary" id="fetch">Fetch from Ads Manager</button>
+    <label class="live" title="Re-read the page every few seconds while you edit the ad">
+      <input type="checkbox" id="live" checked> Live
+    </label>
+  </div>
+  <div id="status" class="status" role="status">Open your ad in Meta Ads Manager, then fetch.</div>
+
+  <h2>Ad copy</h2>
+  <textarea id="copy" placeholder="Fetched copy appears here. You can also paste or edit."></textarea>
+  <div class="row">
+    <button id="grab" title="Uses the text you selected, or the text box you last clicked in, on any page">Grab selection</button>
+    <button id="clear">Clear</button>
+    <span class="count" id="count">0 chars</span>
+  </div>
+  <div id="out"><p class="empty">Nothing to check yet.</p></div>
+
+  <h2>Creatives</h2>
+  <div id="creatives"><p class="empty">Images and videos from the ad preview appear here after a fetch.</p></div>
+
+  <details class="card settings">
+    <summary>Deep check settings (optional)</summary>
+    <p class="meta">Deep check sends the creative image to the AI service you choose, using your own API key, so the model can read text in the image and spot visual risks. Nothing is sent unless you click “Deep check” on a creative. Keys are stored only in this browser.</p>
+    <label class="lbl" for="provider">Model</label>
+    <select id="provider">
+      <option value="gemma">Gemma 4 31B · OpenRouter (recommended)</option>
+      <option value="nemotron">Nemotron 3.5 Super VL · OpenRouter</option>
+      <option value="claude">Claude · Anthropic API</option>
+    </select>
+    <label class="lbl" for="key" id="keylbl" style="margin-top:10px">OpenRouter API key</label>
+    <input id="key" type="password" autocomplete="off" placeholder="sk-or-…">
+    <div class="row"><button id="savekey">Save key</button><button id="delkey">Remove key</button><span id="keystate" class="count"></span></div>
+    <div class="help"><a href="https://iam-knr.github.io/adsmentor-adcheck/openrouter-setup/" target="_blank" rel="noopener">Setup guide</a><a href="https://openrouter.ai/settings/keys" target="_blank" rel="noopener">Get an OpenRouter key</a></div>
+    <p class="meta" style="margin-top:10px">Some models are rate-limited, and providers may log prompts and images, so avoid sending confidential client creatives. Treat results as a second opinion.</p>
+  </details>
+
+  <p class="soon" aria-label="Roadmap"><b>Meta Ads</b> today · <span>Google Ads</span> and <span>LinkedIn Ads</span> coming soon</p>
+
+  <p class="note">
+    Prototype. Rules are not yet validated against real rejected ads. “Clean” is not a guarantee: Meta also reviews landing pages and account history.
+    Copy is checked inside this panel and is not sent anywhere. Creative checks run locally unless you use Deep check.
+  </p>
+  <footer class="credit">
+    Built by <a href="https://iamknr.in" target="_blank" rel="noopener">Kailas (KNR) Nath R</a>
+    and team <a href="https://adsmentor.in" target="_blank" rel="noopener">Ads Mentor</a>.
+    Not affiliated with Meta.
+  </footer>
+</div>
+<script src="engine.js"></script>
+<script src="creative.js"></script>
+<script src="sidepanel.js"></script>
+</body>
+</html>
