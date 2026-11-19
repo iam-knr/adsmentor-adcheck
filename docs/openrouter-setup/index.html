@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenRouter setup guide · AdCheck by Ads Mentor</title>
+<meta name="description" content="Step-by-step guide to creating an OpenRouter API key and adding it to AdCheck so Deep check can read the text inside your ad creatives.">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:title" content="OpenRouter setup guide · AdCheck">
+<meta property="og:description" content="Create an OpenRouter key and turn on Deep check in AdCheck in about two minutes.">
+<meta property="og:image" content="https://iam-knr.github.io/adsmentor-adcheck/assets/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../assets/icon-512.png" alt="" width="32" height="32"> AdCheck</a>
+    <nav aria-label="Main">
+      <a href="../#features">Features</a>
+      <a href="../#roadmap">Roadmap</a>
+      <a class="btn sm" href="https://github.com/iam-knr/adsmentor-adcheck">GitHub</a>
+      <a class="btn sm primary" href="../#install">Install</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section style="padding-top:56px">
+  <div class="wrap prose">
+    <div class="crumb"><a href="../">AdCheck</a> / Setup guide</div>
+    <div class="eyebrow">Setup guide</div>
+    <h1 style="font-size:clamp(32px,4.6vw,48px);margin:10px 0 14px">Set up Deep check with OpenRouter</h1>
+    <p style="font-size:19px">Deep check lets an AI model read the text inside your ad creatives and spot visual risks that the quick local checks can't see. It needs an API key from <b>OpenRouter</b>. This takes about two minutes, and you only do it once.</p>
+
+    <div class="note" style="margin:24px 0"><b>Optional.</b> AdCheck's copy checks, hover explanations and quick creative checks work without any key. You only need this for Deep check.</div>
+
+    <h2>Create your key</h2>
+    <ol>
+      <li><b>Sign in to OpenRouter</b>Go to <a href="https://openrouter.ai" target="_blank" rel="noopener">openrouter.ai</a> and sign in with Google, GitHub or email.</li>
+      <li><b>Open the Keys page</b>Visit <a href="https://openrouter.ai/settings/keys" target="_blank" rel="noopener">openrouter.ai/settings/keys</a> and click <b>Create Key</b>.</li>
+      <li><b>Name it and cap it</b>Call it <span class="kbd">AdCheck</span>. If you see a credit limit field, set a small cap. It's a safety net, not a requirement.</li>
+      <li><b>Copy the key</b>It starts with <span class="kbd">sk-or-</span> and is shown <b>only once</b>. Copy it before you close the dialog. Don't share it or paste it into chats, screenshots or public repos.</li>
+    </ol>
+
+    <h2>Add it to AdCheck</h2>
+    <ol>
+      <li><b>Open the side panel</b>Click the AdCheck icon, or press <span class="kbd">Alt</span>+<span class="kbd">Shift</span>+<span class="kbd">A</span>.</li>
+      <li><b>Open Deep check settings</b>Scroll to the bottom of the panel and expand <b>Deep check settings</b>.</li>
+      <li><b>Choose a model</b>Leave it on <b>Gemma 4 31B (OpenRouter)</b>. If it's busy, AdCheck automatically tries a backup model.</li>
+      <li><b>Paste and save</b>Paste your key into the field and click <b>Save key</b>. You should see "Key saved". The key is stored only in your browser.</li>
+    </ol>
+
+    <h2>Run your first Deep check</h2>
+    <ol>
+      <li><b>Open your ad in Meta Ads Manager</b>The creatives in the preview appear in the panel's <b>Creatives</b> section.</li>
+      <li><b>Click Deep check on a creative</b>After a few seconds you'll see a one-line summary, any visual risks with fixes, and the text read from the image, which is also checked against the same rules as your copy.</li>
+    </ol>
+
+    <h2>If something goes wrong</h2>
+    <table class="t">
+      <thead><tr><th>What you see</th><th>What it means and what to do</th></tr></thead>
+      <tbody>
+        <tr><td>Key rejected (401)</td><td>The key is wrong or was deleted. Create a new one and save it again in the panel.</td></tr>
+        <tr><td>Credits needed (402)</td><td>The model you picked needs a balance. Switch back to the default model, or add credits on OpenRouter and keep a spend cap on the key.</td></tr>
+        <tr><td>"Rate-limited upstream" or "Provider returned error"</td><td>The model's provider is busy. AdCheck retries on backup models automatically. If all fail, wait a minute and click <b>Re-run deep check</b>.</td></tr>
+        <tr><td>Answer was cut off</td><td>The model ran out of room. AdCheck still shows the text it managed to read. Run it again for the full result.</td></tr>
+        <tr><td>"Couldn't read this image's pixels"</td><td>Chrome couldn't load that image. Use another creative, or open the ad preview again and fetch.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Privacy, cost and safety</h2>
+    <ul>
+      <li><b>What is sent.</b> Only when you click Deep check, one image from your ad goes to OpenRouter and the model provider behind it. Your ad copy is never sent.</li>
+      <li><b>Logging.</b> Depending on the model, the provider may log prompts and images. Avoid sending confidential client creatives.</li>
+      <li><b>Cost.</b> The models AdCheck uses by default don't need a balance. If you choose a paid model later, set a spend cap on the key.</li>
+      <li><b>Revoking.</b> You can delete the key any time at <a href="https://openrouter.ai/settings/keys" target="_blank" rel="noopener">openrouter.ai/settings/keys</a>, and remove it from AdCheck with <b>Remove key</b>.</li>
+      <li><b>Prefer Claude?</b> Choose <b>Claude (Anthropic API)</b> in the model list and paste an Anthropic key from <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a> instead. It needs paid credit.</li>
+    </ul>
+
+    <div class="cta" style="margin-top:36px"><a class="btn primary" href="https://openrouter.ai/settings/keys" target="_blank" rel="noopener">Open OpenRouter keys</a><a class="btn" href="../#install">Install AdCheck</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Kailas (KNR) Nath R and Ads Mentor. MIT licence. Not affiliated with Meta or OpenRouter.</div>
+    <div><a href="../">AdCheck</a> · <a href="https://github.com/iam-knr/adsmentor-adcheck">GitHub</a> · <a href="https://iamknr.in">iamknr.in</a> · <a href="https://adsmentor.in">adsmentor.in</a></div>
+  </div>
+</footer>
+</body>
+</html>
