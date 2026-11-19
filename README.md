@@ -28,13 +28,13 @@ A free Chrome side panel that reads your ad in Meta Ads Manager and flags wordin
 | LinkedIn Ads | Coming soon |
 
 ## Install (unpacked)
-1. Download `adcheck-extension-v0.4.0.zip` from [`docs/download`](docs/download) and unzip it. (Or clone this repo and use the `extension/` folder.)
+1. Download `adcheck-extension-v0.5.0.zip` from [`docs/download`](docs/download) and unzip it. (Or clone this repo and use the `extension/` folder.)
 2. Open `chrome://extensions` and turn on **Developer mode**.
 3. Click **Load unpacked** and choose the folder.
 4. Open an ad in Meta Ads Manager and click the AdCheck icon (or press `Alt+Shift+A`).
 
 ## Honest limits
-This is an early release. The rules come from Meta's published Advertising Standards, third-party guidance and summaries of ASCI/CCPA rules, and have **not** been validated against a large set of real rejected ads (see [`research/policy-dataset.md`](research/policy-dataset.md) for sources and gaps). A clean result is **not** a guarantee of approval: Meta also reviews images, landing pages and account history. Local creative checks are rough signals. Free AI models are rate-limited and the provider may log prompts, so don't send confidential client creatives to them.
+AdCheck is a second opinion, not a verdict. The rules come from Meta's published Advertising Standards, third-party guidance and summaries of ASCI/CCPA rules, and have **not** been validated against a large set of real rejected ads (see [`research/policy-dataset.md`](research/policy-dataset.md) for sources and gaps). A clean result is **not** a guarantee of approval: Meta also reviews images, landing pages and account history. Local creative checks are rough signals. Some AI models are rate-limited and the provider may log prompts, so don't send confidential client creatives to them.
 
 AdCheck is an independent tool and is not affiliated with or endorsed by Meta Platforms, Inc.
 
