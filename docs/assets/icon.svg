@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="AdCheck">
-  <rect width="1024" height="1024" rx="224" fill="#111"/>
-  <path d="M512 150 L800 250 L800 520 Q800 740 512 880 Q224 740 224 520 L224 250 Z" fill="#FFD21F"/>
-  <path d="M392 520 L482 622 L656 404" fill="none" stroke="#111" stroke-width="78" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="1024" height="1024" rx="224" fill="#FFD21F"/>
+  <path d="M512 118 L876 236 L876 520 Q876 770 512 928 Q148 770 148 520 L148 236 Z" fill="#0B0B0B"/>
+  <path d="M338 524 L464 650 L694 386" fill="none" stroke="#FFD21F" stroke-width="100" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
