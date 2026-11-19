@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdCheck by Ads Mentor: catch Meta ad rejections before you publish</title>
+<meta name="description" content="Chrome extension that reads your ad in Meta Ads Manager and flags wording and creatives likely to be rejected, with the reason and a safer fix. Built for Indian advertisers. Google Ads and LinkedIn Ads coming soon.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AdCheck by Ads Mentor">
+<meta property="og:description" content="Catch Meta ad rejections before you publish. Chrome side panel with hover explanations and safer rewrites.">
+<meta property="og:image" content="https://iam-knr.github.io/adsmentor-adcheck/assets/og.png">
+<meta property="og:url" content="https://iam-knr.github.io/adsmentor-adcheck/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="assets/icon-512.png" alt="" width="32" height="32"> AdCheck</a>
+    <nav aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="openrouter-setup/">Setup guide</a>
+      <a class="btn sm" href="https://github.com/iam-knr/adsmentor-adcheck">GitHub</a>
+      <a class="btn sm primary" href="#install">Install</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div id="top"></div>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill">Open source · Made for Indian advertisers</span>
+      <h1>Catch Meta ad rejections <em>before</em> you publish.</h1>
+      <p class="lead">AdCheck reads your ad inside Meta Ads Manager and shows which wording and creatives are likely to be rejected, why, and what to change. Hover any highlighted phrase to see the reason.</p>
+      <div class="cta">
+        <a class="btn primary" href="#install">Get the extension</a>
+        <a class="btn" href="try/">Try it in your browser</a>
+      </div>
+      <div class="facts">
+        <span>Reads Primary text, Headline, Description</span>
+        <span>Covers Meta + ASCI / CCPA rules</span>
+        <span>Copy is checked on your device</span>
+      </div>
+    </div>
+    <figure class="frame" style="margin:0">
+      <div class="crop"><img src="assets/shots/panel-tooltip.png" alt="AdCheck side panel with a highlighted phrase and a tooltip explaining why it was flagged" width="1000" height="2000"></div>
+      <figcaption>The side panel, with demo ad copy. Hover a highlight to see the policy reason and a safer fix.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section id="problem">
+  <div class="wrap">
+    <div class="eyebrow">The problem</div>
+    <h2>Rejections cost you days, and sometimes the account.</h2>
+    <p class="sub">Meta doesn't publish a banned-word list. Ads fail on things like "Are you struggling with debt?", "guaranteed income", or a placement claim with no proof, and the rejection message rarely says which line caused it. AdCheck tells you before you hit publish.</p>
+  </div>
+</section>
+
+<section id="features" class="band">
+  <div class="wrap">
+    <div class="eyebrow">What it does</div>
+    <h2>A second pair of eyes inside Ads Manager.</h2>
+    <p class="sub">Open the side panel on your ad and it reads the copy and creatives for you.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">1</div><h3>Reads your ad automatically</h3><p>Pulls Primary text, Headline and Description, plus the creatives in the preview. A Live mode re-checks as you edit.</p></div>
+      <div class="card"><div class="ico">2</div><h3>Explains every flag on hover</h3><p>Highlighted phrases show the severity, the policy behind it, why it's a problem and how to fix it.</p></div>
+      <div class="card"><div class="ico">3</div><h3>Suggests safer wording</h3><p>Each finding comes with a fix and, where we have one, a risky-versus-safer example.</p></div>
+      <div class="card"><div class="ico">4</div><h3>India-aware</h3><p>Goes beyond Meta's rules to flag placement guarantees, salary figures and government-approval claims that ASCI and CCPA scrutinise.</p></div>
+      <div class="card"><div class="ico">5</div><h3>Checks creatives too</h3><p>Quick local checks for layout, resolution and aspect ratio. An optional Deep check reads the text inside an image using an AI model you choose.</p></div>
+      <div class="card"><div class="ico">6</div><h3>Private by default</h3><p>Copy is checked inside the panel. Nothing leaves your browser unless you click Deep check on a creative.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="screens">
+  <div class="wrap">
+    <div class="eyebrow">Screenshots</div>
+    <h2>See it in action.</h2>
+    <p class="sub">All screenshots use demo copy and demo images, not real client ads.</p>
+    <div class="shots">
+      <figure class="shot"><div class="crop"><img src="assets/shots/panel-verdict.png" alt="AdCheck verdict card showing high risk and the highlighted phrases in demo ad copy" loading="lazy" width="1000" height="2000"></div><b>Verdict and highlights</b><figcaption>One verdict at the top, every risky phrase marked in your copy.</figcaption></figure>
+      <figure class="shot"><div class="crop"><img src="assets/shots/panel-creatives.png" alt="AdCheck creatives section with quick checks on two demo images" loading="lazy" width="1000" height="1621"></div><b>Creative checks</b><figcaption>Layout, resolution and ratio checks run locally. Deep check is optional.</figcaption></figure>
+      <figure class="shot"><div class="crop full"><img src="assets/shots/panel-settings.png" alt="AdCheck Deep check settings with a model choice and an API key field" loading="lazy" width="1000" height="878"></div><b>Optional Deep check</b><figcaption>Bring your own key. Works with OpenRouter, or use Claude.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="band">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>Three steps.</h2>
+    <ol class="steps" style="margin-top:28px">
+      <li><b>Open your ad</b><span>Go to Meta Ads Manager and open the ad you're editing.</span></li>
+      <li><b>Open AdCheck</b><span>Click the icon or press <code>Alt+Shift+A</code>. It reads the ad and checks it straight away.</span></li>
+      <li><b>Fix and recheck</b><span>Hover the highlights, apply the safer wording, and watch the verdict update.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="wrap">
+    <div class="eyebrow">What it checks</div>
+    <h2>25+ rules across Meta and Indian ad standards.</h2>
+    <p class="sub">Built from Meta's published Advertising Standards, industry guidance and ASCI / CCPA summaries. Each finding is labelled with where the rule comes from.</p>
+    <ul class="checks">
+      <li><b>Personal attributes.</b> "you" plus health, finances, age, religion or identity.</li>
+      <li><b>Health and wellness.</b> Timeframe promises, cure claims, body-shaming, before/after.</li>
+      <li><b>Income claims.</b> Specific earnings, passive income, "financial freedom".</li>
+      <li><b>Guarantees.</b> Guaranteed returns, clients, jobs or results.</li>
+      <li><b>Financial products.</b> Payday loans, crypto, "no credit check", assured returns.</li>
+      <li><b>Education and coaching (India).</b> Placement and salary claims, "100% placement", pay-after-placement fees.</li>
+      <li><b>Endorsement claims.</b> Government approval or certification without proof.</li>
+      <li><b>Misleading style.</b> Clickbait, shouting, unsubstantiated "No.1" claims.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="roadmap" class="band">
+  <div class="wrap">
+    <div class="eyebrow">Roadmap</div>
+    <h2>Meta Ads today. More platforms next.</h2>
+    <div class="road" style="margin-top:28px">
+      <div class="card"><span class="badge live">Available</span><h3>Meta Ads</h3><p>Facebook and Instagram ads in Ads Manager: copy, creatives, hover explanations, India rules.</p></div>
+      <div class="card dim"><span class="badge soon">Coming soon</span><h3>Google Ads</h3><p>The same pre-check for Google Ads policies, so you catch disapprovals before they happen.</p></div>
+      <div class="card dim"><span class="badge soon">Coming soon</span><h3>LinkedIn Ads</h3><p>Pre-checks for LinkedIn Ads policies, built for B2B and recruitment advertisers.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <div class="eyebrow">Install</div>
+    <h2>Add it to Chrome in a minute.</h2>
+    <p class="sub">It isn't on the Chrome Web Store yet, so you load it as an unpacked extension.</p>
+    <div class="install">
+      <div>
+        <ol>
+          <li><b>Download</b> the extension: <a href="download/adcheck-extension-v0.4.0.zip"><code>adcheck-extension-v0.4.0.zip</code></a>, then unzip it.</li>
+          <li>Open <code>chrome://extensions</code> and turn on <b>Developer mode</b> (top right).</li>
+          <li>Click <b>Load unpacked</b> and choose the unzipped folder.</li>
+          <li>Pin AdCheck from the puzzle-piece menu, open your ad in Ads Manager, and click the icon.</li>
+        </ol>
+        <div class="cta"><a class="btn primary" href="download/adcheck-extension-v0.4.0.zip">Download v0.4.0</a><a class="btn" href="https://github.com/iam-knr/adsmentor-adcheck">View source</a></div>
+      </div>
+      <div class="note">
+        <b>Optional: Deep check.</b> To have an AI model read the text inside your creatives, add an OpenRouter key in the panel's settings. <a href="openrouter-setup/">Step-by-step setup guide</a>. Some models are rate-limited and providers may log prompts, so avoid sending confidential client creatives.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="honest">
+  <div class="wrap">
+    <div class="eyebrow">Straight talk</div>
+    <h2>What AdCheck is, and isn't.</h2>
+    <div class="note" style="margin-top:20px">
+      <b>It's an early release.</b> The rules come from Meta's published standards and public guidance, and haven't yet been validated against a large set of real rejections. A clean result is <b>not</b> a guarantee of approval: Meta also reviews images, landing pages and your account history. Some of the creative checks are rough signals. AdCheck is an independent tool and is <b>not affiliated with or endorsed by Meta</b>.
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="eyebrow">Who built it</div>
+    <h2>Built by people who run ads.</h2>
+    <div class="built" style="margin-top:24px">
+      <div class="card"><h3>Kailas (KNR) Nath R</h3><p>Creator and lead builder. <a href="https://iamknr.in">iamknr.in</a></p></div>
+      <div class="card"><h3>Team Ads Mentor</h3><p>Live, cross-channel advertising training for India. <a href="https://adsmentor.in">adsmentor.in</a></p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Kailas (KNR) Nath R and Ads Mentor. Released under the MIT licence.</div>
+    <div><a href="https://github.com/iam-knr/adsmentor-adcheck">GitHub</a> · <a href="https://iamknr.in">iamknr.in</a> · <a href="https://adsmentor.in">adsmentor.in</a></div>
+  </div>
+</footer>
+</body>
+</html>
