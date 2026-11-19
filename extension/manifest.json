@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AdCheck by Ads Mentor",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Reads your Meta ad in Ads Manager and flags wording and creatives likely to be rejected, with the reason and a safer fix.",
   "permissions": [
     "sidePanel",
