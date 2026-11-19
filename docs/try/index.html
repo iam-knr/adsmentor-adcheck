@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdCheck: try it online (Ads Mentor)</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  :root {
+    --bg: #f7f7f5; --card: #ffffff; --ink: #1a1a18; --muted: #6b6b66; --line: #e3e3de;
+    --high: #b42318; --high-bg: #fdecea; --med: #9a6700; --med-bg: #fff4d6;
+    --low: #475467; --low-bg: #eef0f3; --ok: #1a7f37; --ok-bg: #e6f4ea;
+    --accent: #1a1a18; --accent-ink: #ffffff; --mark: #ffd9d4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141413; --card: #1e1e1c; --ink: #ecebe6; --muted: #9b9a93; --line: #34342f;
+      --high: #ff8a7a; --high-bg: #3a1f1b; --med: #f0c05a; --med-bg: #3a2f13;
+      --low: #aab2c0; --low-bg: #262a31; --ok: #6fd08c; --ok-bg: #16301f;
+      --accent: #ecebe6; --accent-ink: #141413; --mark: #5a2a24;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 24px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  label.lbl { display: block; font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+  textarea { width: 100%; min-height: 140px; resize: vertical; padding: 12px; font: inherit;
+    color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; }
+  textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+  button { font: inherit; cursor: pointer; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--card); color: var(--ink); padding: 8px 14px; }
+  button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+  button.chip { font-size: 13px; padding: 4px 10px; border-radius: 999px; color: var(--muted); }
+  button.chip:hover { color: var(--ink); border-color: var(--ink); }
+  .count { margin-left: auto; font-size: 13px; color: var(--muted); }
+  .verdict { display: flex; gap: 12px; align-items: center; padding: 14px 16px; border-radius: 12px; margin-top: 20px; }
+  .verdict .big { font-size: 20px; font-weight: 700; }
+  .verdict small { display: block; font-weight: 400; opacity: .9; }
+  .v-high { background: var(--high-bg); color: var(--high); }
+  .v-review { background: var(--med-bg); color: var(--med); }
+  .v-low { background: var(--low-bg); color: var(--low); }
+  .v-clean { background: var(--ok-bg); color: var(--ok); }
+  .preview { margin-top: 16px; white-space: pre-wrap; word-break: break-word; }
+  mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 2px; }
+  mark.m-medium { background: var(--med-bg); box-shadow: inset 0 -2px 0 var(--med); }
+  mark.m-low { background: var(--low-bg); box-shadow: inset 0 -2px 0 var(--low); }
+  mark.m-high { box-shadow: inset 0 -2px 0 var(--high); }
+  .finding { margin-top: 12px; border-left: 4px solid var(--line); }
+  .finding.high { border-left-color: var(--high); }
+  .finding.medium { border-left-color: var(--med); }
+  .finding.low { border-left-color: var(--low); }
+  .finding h3 { margin: 0 0 4px; font-size: 16px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+    padding: 2px 8px; border-radius: 999px; }
+  .tag.high { background: var(--high-bg); color: var(--high); }
+  .tag.medium { background: var(--med-bg); color: var(--med); }
+  .tag.low { background: var(--low-bg); color: var(--low); }
+  .meta { font-size: 13px; color: var(--muted); margin: 0 0 8px; }
+  .found { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 14px; }
+  .fix { background: var(--bg); border-radius: 8px; padding: 10px 12px; margin-top: 8px; font-size: 15px; }
+  .fix b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: 2px; }
+  .pair { font-size: 14px; margin-top: 6px; color: var(--muted); }
+  .pair .no { color: var(--high); } .pair .yes { color: var(--ok); }
+  .note { font-size: 13px; color: var(--muted); margin-top: 24px; }
+  .empty { color: var(--muted); text-align: center; padding: 24px 0 0; }
+  @media (max-width: 520px) { .count { width: 100%; margin-left: 0; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 style="display:flex;align-items:center;gap:10px"><img src="../assets/icon-512.png" alt="" width="36" height="36" style="border-radius:9px"> AdCheck</h1>
+  <p class="sub">Try-it-online version. For the full experience that reads Meta Ads Manager for you, <a href="../#install">install the Chrome extension</a>. Paste your ad copy before you publish. It flags wording that commonly triggers Meta rejections and Indian ad-regulator problems, and suggests a safer direction.</p>
+
+  <div class="card">
+    <label class="lbl" for="copy">Ad copy (headline + primary text)</label>
+    <textarea id="copy" placeholder="e.g. Are you struggling with debt? Get a guaranteed 50,000/month income in 7 days!!!"></textarea>
+    <div class="row">
+      <button class="primary" id="check">Check my ad</button>
+      <button id="clear">Clear</button>
+      <span class="count" id="count">0 characters</span>
+    </div>
+    <div class="row" id="samples" aria-label="Try an example"></div>
+  </div>
+
+  <div id="out"><p class="empty">Paste copy above, or try an example, to see results.</p></div>
+
+  <p class="note">
+    Prototype. Rules come from Meta's published ad standards plus third-party guides and ASCI/CCPA summaries, and have not yet been validated against real rejected ads.
+    A "clean" result is not a guarantee of approval: Meta also reviews images, the landing page and your account history. Always check the
+    <a href="https://transparency.meta.com/policies/ad-standards/" target="_blank" rel="noopener">official Advertising Standards</a>.
+    Your text is checked in this page only and is not sent anywhere.
+  </p>
+  <p class="note">Built by <a href="https://iamknr.in" target="_blank" rel="noopener">Kailas (KNR) Nath R</a> and team <a href="https://adsmentor.in" target="_blank" rel="noopener">Ads Mentor</a>. Google Ads and LinkedIn Ads coming soon. Not affiliated with Meta. <a href="../">Back to the AdCheck site</a>.</p>
+</div>
+
+<script src="engine.js"></script>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const copy = $("copy"), out = $("out");
+
+  const SAMPLES = [
+    ["Health 'you' hook", "Do you have diabetes? Our herbal formula cured for good in 30 days!"],
+    ["Debt", "Drowning in debt? Get a payday loan today, no credit check."],
+    ["Income claim", "Make ₹1,00,000/month from home. No experience required, passive income, guaranteed!!!"],
+    ["Coaching (India)", "Learn Meta Ads in 30 days. 100% placement guarantee. Join India's No.1 digital marketing course."],
+    ["Safer version", "Learn Meta Ads with live classes and mentor feedback. Our 2025 batch: 42 of 60 students placed in related roles. Past record is no guarantee of future outcomes."],
+  ];
+
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  function highlight(text, findings) {
+    const spans = [];
+    for (const f of findings) for (const m of f.matches) spans.push({ s: m.index, e: m.index + m.text.length, sev: f.severity });
+    spans.sort((a, b) => a.s - b.s || b.e - a.e);
+    let html = "", pos = 0;
+    for (const sp of spans) {
+      if (sp.s < pos) continue;
+      html += esc(text.slice(pos, sp.s)) + `<mark class="m-${sp.sev}">${esc(text.slice(sp.s, sp.e))}</mark>`;
+      pos = sp.e;
+    }
+    return html + esc(text.slice(pos));
+  }
+
+  const VERDICT = {
+    high:   ["High risk of rejection", "Fix the red items before publishing."],
+    review: ["Review recommended", "Some wording may be flagged. Check the notes below."],
+    low:    ["Low risk", "Minor style points only."],
+    clean:  ["No known risky wording found", "Not a guarantee. Images and the landing page are also reviewed."],
+  };
+  const SEV = { high: "High", medium: "Medium", low: "Low" };
+  const SRC = { META: "Meta policy text", ASCI: "India regulator (ASCI/CCPA)", BLOG: "Third-party guidance" };
+
+  function render() {
+    const text = copy.value;
+    $("count").textContent = text.length + " characters";
+    if (!text.trim()) { out.innerHTML = '<p class="empty">Paste copy above, or try an example, to see results.</p>'; return; }
+    const r = AdChecker.run(text);
+    const [title, sub] = VERDICT[r.verdict];
+    let html = `<div class="verdict v-${r.verdict}" role="status"><div class="big">${title}<small>${sub}</small></div></div>`;
+    if (r.findings.length) {
+      html += `<div class="card preview" aria-label="Your copy with flagged phrases">${highlight(text, r.findings)}</div>`;
+    }
+    for (const f of r.findings) {
+      const found = [...new Set(f.matches.map((m) => m.text))].slice(0, 4).map((t) => `<span class="found">"${esc(t)}"</span>`).join(", ");
+      html += `<div class="card finding ${f.severity}">
+        <h3><span class="tag ${f.severity}">${SEV[f.severity]}</span>${esc(f.title)}</h3>
+        <p class="meta">${esc(f.policy)} · ${SRC[f.source]}</p>
+        <div>Found: ${found}</div>
+        <p style="margin:8px 0 0">${esc(f.why)}</p>
+        <div class="fix"><b>Safer direction</b>${esc(f.fix)}</div>
+        ${f.example ? `<div class="pair"><span class="no">Risky:</span> ${esc(f.example[0])}<br><span class="yes">Safer:</span> ${esc(f.example[1])}</div>` : ""}
+      </div>`;
+    }
+    out.innerHTML = html;
+  }
+
+  const sampleRow = $("samples");
+  const lead = document.createElement("span"); lead.textContent = "Try:"; lead.className = "count"; lead.style.marginLeft = "0";
+  sampleRow.appendChild(lead);
+  SAMPLES.forEach(([name, txt]) => {
+    const b = document.createElement("button"); b.className = "chip"; b.textContent = name;
+    b.onclick = () => { copy.value = txt; render(); };
+    sampleRow.appendChild(b);
+  });
+  $("check").onclick = render;
+  $("clear").onclick = () => { copy.value = ""; render(); copy.focus(); };
+  copy.addEventListener("input", render);
+  render();
+</script>
+</body>
+</html>
