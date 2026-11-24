@@ -171,7 +171,7 @@ Only report issues you can actually see. If nothing is risky, return "risks": []
       headers: {
         "content-type": "application/json",
         "authorization": "Bearer " + key,
-        "x-title": "Ad Policy Pre-Checker",
+        "x-title": "AdCheck by Ads Mentor",
       },
       body: JSON.stringify({
         model,

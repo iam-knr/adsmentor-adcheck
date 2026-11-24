@@ -3,7 +3,7 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch(() => {});
   chrome.contextMenus.create({
     id: "check-selection",
-    title: "Check selected text with Ad Policy Pre-Checker",
+    title: "Check selected text with AdCheck",
     contexts: ["selection"],
   });
 });
