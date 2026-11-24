@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy · AdCheck by Ads Mentor</title>
+<meta name="description" content="How AdCheck handles your data: ad copy is checked inside your browser, nothing is collected by us, and an optional Deep check sends one image to the AI provider you choose.">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="canonical" href="https://adcheck.iamknr.in/privacy/">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:title" content="Privacy policy · AdCheck">
+<meta property="og:description" content="AdCheck checks your ad copy inside your browser. We do not collect, store or sell your data.">
+<meta property="og:image" content="https://iam-knr.github.io/adsmentor-adcheck/assets/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../assets/icon-512.png" alt="" width="32" height="32"> AdCheck</a>
+    <nav aria-label="Main">
+      <a href="../#features">Features</a>
+      <a href="../#roadmap">Roadmap</a>
+      <a href="../openrouter-setup/">Setup guide</a>
+      <a class="btn sm" href="https://github.com/iam-knr/adsmentor-adcheck">GitHub</a>
+      <a class="btn sm primary" href="../#install">Install</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section style="padding-top:56px">
+  <div class="wrap prose">
+    <div class="crumb"><a href="../">AdCheck</a> / Privacy policy</div>
+    <div class="eyebrow">Privacy policy</div>
+    <h1 style="font-size:clamp(32px,4.6vw,48px);margin:10px 0 14px">AdCheck privacy policy</h1>
+    <p style="font-size:19px">AdCheck is a browser extension that reads your ad in Meta Ads Manager and flags wording and creatives likely to be rejected. It is built to keep your ad data on your own device. This page explains what the extension does with your data in plain words.</p>
+    <p><b>Last updated:</b> 25 November 2026</p>
+
+    <div class="note" style="margin:24px 0"><b>In short.</b> We do not collect, store, sell or share your data. Ad copy is checked inside your browser. The only time anything leaves your browser is when you choose Deep check on a creative, and then one image goes to the AI provider you picked, using your own key.</div>
+
+    <h2>What AdCheck does</h2>
+    <ul>
+      <li><b>Reads your ad on the page.</b> When you open the AdCheck side panel on a Meta Ads Manager page, it reads the ad text (Primary text, Headline and Description) and the creative images shown in the ad preview. A Live mode re-reads the page as you edit.</li>
+      <li><b>Checks wording locally.</b> The ad text is compared against a built-in set of advertising rules inside the extension. This happens in your browser. The text is not sent anywhere.</li>
+      <li><b>Checks creatives locally.</b> Quick checks on layout, resolution and aspect ratio also run in your browser.</li>
+      <li><b>Checks text you select.</b> If you right-click selected text and choose the AdCheck menu item, that text is passed to the side panel and checked in the same way.</li>
+    </ul>
+
+    <h2>Information we collect</h2>
+    <p>None. AdCheck has no accounts, no analytics, no advertising, no tracking and no server of its own. We do not receive your ad copy, your images, your key or any information about how you use the extension.</p>
+
+    <h2>Information stored in your browser</h2>
+    <ul>
+      <li><b>Your settings.</b> Your chosen Deep check model is saved in your browser's extension storage.</li>
+      <li><b>Your API key, if you add one.</b> A key you paste for Deep check is saved in your browser's extension storage on your device only. You can remove it at any time with <b>Remove key</b> in the panel, or by removing the extension.</li>
+      <li><b>Selected text, briefly.</b> Text you send from the right-click menu is held in temporary session storage just long enough for the panel to read it, and is cleared when the browser session ends.</li>
+    </ul>
+
+    <h2>Deep check (optional)</h2>
+    <p>Deep check is off until you add your own API key and click it on a creative. When you do:</p>
+    <ul>
+      <li>One image from your ad, plus a fixed instruction asking the model to read the text and note visual risks, is sent directly from your browser to the provider you chose: <b>OpenRouter</b> (and the model provider behind it) or the <b>Anthropic API</b>.</li>
+      <li>Your ad copy is not sent. Nothing is sent to us.</li>
+      <li>The provider receives the image under your own account and key. Depending on the provider and model, it may log requests. Read their terms before you send confidential client creatives: <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener">OpenRouter privacy</a> and <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic privacy</a>.</li>
+    </ul>
+
+    <h2>Why AdCheck asks for each permission</h2>
+    <table class="t">
+      <thead><tr><th>Permission</th><th>Why it is needed</th></tr></thead>
+      <tbody>
+        <tr><td>Side panel</td><td>Shows the AdCheck panel next to your ad.</td></tr>
+        <tr><td>Active tab, scripting, tabs</td><td>Lets the panel read the ad text and creatives on the Meta Ads Manager tab you are viewing, and notice when you switch tabs or the page changes.</td></tr>
+        <tr><td>Context menus</td><td>Adds the right-click option to check selected text.</td></tr>
+        <tr><td>Storage</td><td>Saves your model choice and, if you add one, your API key on your device.</td></tr>
+        <tr><td>Access to facebook.com and fbcdn.net</td><td>Meta Ads Manager runs on facebook.com, and ad images are served from fbcdn.net. AdCheck reads these only to check your ad.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What AdCheck does not do</h2>
+    <ul>
+      <li>It does not sell, rent or share your data.</li>
+      <li>It does not read pages outside Meta Ads Manager for checking, and it does not run in the background on other sites.</li>
+      <li>It does not load or run code from outside the extension.</li>
+      <li>It does not change, publish or submit your ads. It only reads and gives advice.</li>
+    </ul>
+
+    <h2>Not affiliated with Meta</h2>
+    <p>AdCheck is an independent tool. It is not affiliated with or endorsed by Meta Platforms, Inc. A clean result in AdCheck does not guarantee approval, because Meta also reviews images, landing pages and account history.</p>
+
+    <h2>Children</h2>
+    <p>AdCheck is a tool for advertisers and is not directed at children.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If AdCheck changes in a way that affects your data, we will update this page and the date above before the change ships.</p>
+
+    <h2>Who built AdCheck</h2>
+    <p>AdCheck was built by Kailas (KNR) Nath R (<a href="https://iamknr.in" target="_blank" rel="noopener">iamknr.in</a>) along with <a href="https://aiinmarketing.in/author/kautilyaroshan" target="_blank" rel="noopener">Kautilya Roshan</a> and Team <a href="https://adsmentor.in" target="_blank" rel="noopener">AdsMentor</a>.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy or AdCheck: <a href="mailto:contact@adsmentor.in">contact@adsmentor.in</a>. You can also open an issue on <a href="https://github.com/iam-knr/adsmentor-adcheck/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Kailas (KNR) Nath R and Ads Mentor. MIT licence. Not affiliated with Meta. Built along with Kautilya Roshan and Team AdsMentor.</div>
+    <div><a href="../">AdCheck</a> · <a href="../privacy/">Privacy</a> · <a href="https://github.com/iam-knr/adsmentor-adcheck">GitHub</a> · <a href="https://iamknr.in">iamknr.in</a> · <a href="https://adsmentor.in">adsmentor.in</a></div>
+  </div>
+</footer>
+</body>
+</html>

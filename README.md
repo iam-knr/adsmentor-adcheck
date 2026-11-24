@@ -7,7 +7,8 @@ A free Chrome side panel that reads your ad in Meta Ads Manager and flags wordin
 <p align="center">
   <a href="https://iam-knr.github.io/adsmentor-adcheck/">Website</a> ·
   <a href="https://iam-knr.github.io/adsmentor-adcheck/try/">Try it online</a> ·
-  <a href="https://iam-knr.github.io/adsmentor-adcheck/#install">Install</a>
+  <a href="https://iam-knr.github.io/adsmentor-adcheck/#install">Install</a> ·
+  <a href="https://adcheck.iamknr.in/privacy/">Privacy</a>
 </p>
 
 <p align="center"><img src="docs/assets/shots/panel-tooltip.png" width="360" alt="AdCheck side panel showing a highlighted phrase and an explanation tooltip"><br><sub>Demo ad copy. Hover any highlight to see why it was flagged.</sub></p>
